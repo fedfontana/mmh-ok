@@ -5,7 +5,12 @@
 	let counter = 0;
 
     async function saveCounter() {
-        console.log(`Logging to ${endpoint}`);
+        const res = await fetch(endpoint);
+        if(!res.ok) {
+            console.error(res.body);
+        } else {
+            console.log(`Logging to ${endpoint}`);
+        }
     }
 </script>
 
