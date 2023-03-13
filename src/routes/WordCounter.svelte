@@ -4,13 +4,15 @@
 
 	let counter = 0;
 
-    async function saveCounter() {
-        const res = await fetch(endpoint);
+    async function saveCounter(c: number) {
+        const res = await fetch(endpoint, { method: "POST" });
         if(!res.ok) {
             console.error(res.body);
         } else {
+			counter = c;
             console.log(`Logging to ${endpoint}`);
         }
+		return res.ok;
     }
 </script>
 
@@ -21,8 +23,7 @@
 	<div class="flex flex-row w-fit bg-neutral-400 text-2xl">
 		<button
 			on:click={() => {
-				counter--;
-                saveCounter();
+				saveCounter(counter-1)
 			}}
 			class="bg-red-400 py-10 px-8"
 		>
@@ -33,8 +34,7 @@
 		</span>
 		<button
 			on:click={() => {
-				counter++;
-                saveCounter();
+				saveCounter(counter+1)
 			}}
 			class="bg-green-400 py-10 px-8"
 		>
