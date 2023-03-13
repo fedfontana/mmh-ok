@@ -4,12 +4,47 @@ import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {
     try {
-        const counters = await prisma.entry.groupBy({ by: ["word"], _count: { word: true } });
-        console.log(counters);
+        const mmh = await prisma.entry.findFirst({
+            where: {
+                word: {
+                    equals: "mmh"
+                }
+            },
+            orderBy: {
+                dateTime: "desc",
+            }
+        });
+        const ok = await prisma.entry.findFirst({
+            where: {
+                word: {
+                    equals: "ok"
+                }
+            },
+            orderBy: {
+                dateTime: "desc",
+            }
+        });
+        const mmh_ok = await prisma.entry.findFirst({
+            where: {
+                word: {
+                    equals: "mmh-ok"
+                }
+            },
+            orderBy: {
+                dateTime: "desc",
+            }
+        });
+
+        console.log({
+            mmh,
+            ok,
+            mmh_ok,
+        });
+
         return {
-            mmh: counters.find(entry => entry.word == "mmh")?._count.word ?? 0,
-            ok: counters.find(entry => entry.word == "ok")?._count.word ?? 0,
-            "mmh-ok": counters.find(entry => entry.word == "mmh-ok")?._count.word ?? 0,
+            mmh: mmh?.count ?? 0,
+            ok: ok?.count ?? 0,
+            "mmh-ok": mmh_ok?.count ?? 0,
         }
     } catch (e) {
         console.error("Error fetching data: ", e);
