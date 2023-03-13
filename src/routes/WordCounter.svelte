@@ -19,24 +19,26 @@
 </script>
 
 <div class="flex flex-col items-center gap-2 text-lg">
-	<h3>
-		{word}
+	<h3 class="font-semibold text-2xl italic">
+		"{word}"
 	</h3>
-	<div class="flex flex-row w-fit bg-neutral-400 text-2xl">
+	<div class="flex flex-row gap-3 w-fit text-2xl">
 		{#if $isLoggedIn}
 			<button
 				on:click={() => {
-					if(counter >= 1) {
+					if (counter >= 1) {
 						saveCounter(counter - 1);
 					}
 				}}
-				class="bg-red-400 py-10 px-8 disabled:bg-neutral-600 disabled:opacity-40"
-				disabled={counter<1}
+				class="bg-red-500 py-10 px-8 rounded-md shadow-lg border-2 border-red-900 hover:scale-95 transition-all disabled:opacity-40 disabled:transition-none disabled:hover:scale-100"
+				disabled={counter < 1}
 			>
 				-
 			</button>
 		{/if}
-		<span class="px-14 py-10">
+		<span
+			class="px-14 py-10 font-mono text-6xl bg-neutral-200 shadow-xl rounded-xl border-2 border-black"
+		>
 			{counter}
 		</span>
 		{#if $isLoggedIn}
@@ -44,7 +46,7 @@
 				on:click={() => {
 					saveCounter(counter + 1);
 				}}
-				class="bg-green-400 py-10 px-8"
+				class="bg-green-500 py-10 px-8 rounded-md shadow-lg border-2 border-green-900 hover:scale-95 transition-all"
 			>
 				+
 			</button>
