@@ -49,6 +49,6 @@ export const load: PageServerLoad = async () => {
         }
     } catch (e) {
         console.error("Error fetching data: ", e);
-        throw error(500, "Could not fetch data cause of: " + (e as Error).toString());
+        throw error(500, "Could not fetch data");
     }
 }
