@@ -13,7 +13,6 @@
 			console.error(res.body);
 		} else {
 			counter = c;
-			console.log(`Logging to ${endpoint}`);
 		}
 		return res.ok;
 	}

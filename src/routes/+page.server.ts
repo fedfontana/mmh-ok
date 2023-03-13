@@ -24,6 +24,7 @@ export const load: PageServerLoad = async () => {
                 dateTime: "desc",
             }
         });
+
         const mmh_ok = await prisma.entry.findFirst({
             where: {
                 word: {

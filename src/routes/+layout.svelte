@@ -6,7 +6,6 @@
 
 	export let data: LayoutServerData;
 	$: {
-		console.log("Changin data to:", data.isLoggedIn)
 		if (data) {
 			$isLoggedIn = data.isLoggedIn;
 		}

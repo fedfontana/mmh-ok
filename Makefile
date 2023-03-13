@@ -1,27 +1,26 @@
-MYSQL_ROOT_PASSWORD=example
-MYSQL_DATABASE=mmh_ok
-MYSQL_USER=philip_rich
-MYSQL_PASSWORD=philip_rich
-MYSQL_CONTAINER_NAME=mmh_ok
+PSQL_ROOT_PASSWORD=example
+PSQL_DATABASE=mmh_ok
+PSQL_USER=philip_rich
+PSQL_PASSWORD=philip_rich
+PSQL_CONTAINER_NAME=mmh_ok
 
 .PHONY: up restore dump logs rm stop populate push studio
 up:
-	mkdir -p ./mysql_data
-	docker run --name $(MYSQL_CONTAINER_NAME) \
-		--mount type=bind,source=$(CURDIR)/mysql_data,target=/var/lib/mysql \
-		-e MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) \
-		-e MYSQL_DATABASE=$(MYSQL_DATABASE) \
-		-e MYSQL_USER=$(MYSQL_USER) \
-		-e MYSQL_PASSWORD=$(MYSQL_PASSWORD) \
-		-p 3306:3306 \
-		-d mysql:8
+	mkdir -p ./psql_data
+	docker run --name $(PSQL_CONTAINER_NAME) \
+		--mount type=bind,source=$(CURDIR)/psql_data,target=/var/lib/postgresql/data \
+		-e POSTGRES_DB=$(PSQL_DATABASE) \
+		-e POSTGRES_USER=$(PSQL_USER) \
+		-e POSTGRES_PASSWORD=$(PSQL_PASSWORD) \
+		-p 5432:5432 \
+		-d postgres:15-alpine
 
 stop:
-	docker stop $(MYSQL_CONTAINER_NAME)
+	docker stop $(PSQL_CONTAINER_NAME)
 
 rm: stop
-	docker rm $(MYSQL_CONTAINER_NAME)
-	rm -rf mysql_data
+	docker rm $(PSQL_CONTAINER_NAME)
+	rm -rf psql_data
 
 push:
 	npx prisma db push

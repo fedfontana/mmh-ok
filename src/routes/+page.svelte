@@ -1,7 +1,6 @@
 <script>
 	import WordCounter from "./WordCounter.svelte";
     export let data;
-    $: console.log(data);
 </script>
 
 <div class="flex flex-col gap-12 w-full">
