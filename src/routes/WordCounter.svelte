@@ -1,8 +1,9 @@
 <script lang="ts">
 	export let endpoint: string;
 	export let word: string;
+	export let initial_count: number;
 
-	let counter = 0;
+	let counter = initial_count;
 
     async function saveCounter(c: number) {
         const res = await fetch(endpoint, { method: "POST" });
