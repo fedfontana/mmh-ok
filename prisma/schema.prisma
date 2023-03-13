@@ -11,6 +11,7 @@ model Entry {
   id       Int      @id @default(autoincrement())
   word     String   @db.VarChar(16)
   dateTime DateTime @default(now())
+  count    Int
 
   @@index(dateTime)
 }

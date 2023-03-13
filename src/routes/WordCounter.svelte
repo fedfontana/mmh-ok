@@ -8,7 +8,7 @@
 	let counter = initialCount;
 
 	async function saveCounter(c: number) {
-		const res = await fetch(endpoint, { method: 'POST' });
+		const res = await fetch(`${endpoint}/${c}`, { method: 'POST' });
 		if (!res.ok) {
 			console.error(res.body);
 		} else {
@@ -27,9 +27,12 @@
 		{#if $isLoggedIn}
 			<button
 				on:click={() => {
-					saveCounter(counter - 1);
+					if(counter >= 1) {
+						saveCounter(counter - 1);
+					}
 				}}
-				class="bg-red-400 py-10 px-8"
+				class="bg-red-400 py-10 px-8 disabled:bg-neutral-600 disabled:opacity-40"
+				disabled={counter<1}
 			>
 				-
 			</button>
