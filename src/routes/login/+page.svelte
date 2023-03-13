@@ -9,8 +9,8 @@
 		return async ({ form, result }) => {
 			switch (result.type) {
 				case 'success':
-                    $isLoggedIn = true;
-					goto("/")
+					$isLoggedIn = true;
+					goto('/');
 					break;
 				case 'failure':
 					form.reset();
@@ -26,49 +26,47 @@
 <form
 	method="POST"
 	use:enhance={handleLoginSubmit}
-	class="flex flex-col gap-12 w-[28rem] mx-auto"
+	class="flex flex-col gap-8 lg:w-1/4 md:w-1/2 px-12 md:p-0 w-full mx-auto justify-between mt-12"
 >
-	<h2 class="mx-auto text-3xl font-semibold mb-6">Login</h2>
+	<h2 class="mx-auto text-3xl font-semibold">Login</h2>
 
 	{#if error !== undefined}
-		<p class="flex flex-col items-center gap-2">
+		<p class="text-lg text-red-500">
 			{error}
 		</p>
 	{/if}
 
 	<div class="flex flex-col gap-4 items-center justify-center">
-		<div class="form-control w-full">
-			<label class="" for="username"> Username </label>
-			<!-- svelte-ignore a11y-autofocus -->
+		<div class="flex flex-col gap-[0.1rem] w-full">
+			<label class="text-sm text-neutral-700 text-opacity-90" for="username"> Username </label>
 			<input
 				name="username"
 				type="text"
 				placeholder="Username"
-				class="border-2 border-black rounded-md"
+				class="border-2 border-black rounded-md px-2 py-1"
 				value=""
 				required
-				autofocus
 			/>
 		</div>
 
-		<div class="w-full">
-			<label class="" for="password"> Password </label>
+		<div class="flex flex-col gap-[0.1rem] w-full">
+			<label class="text-sm text-neutral-700 text-opacity-9" for="password">
+				Password
+			</label>
 			<input
 				name="password"
 				type="password"
 				placeholder="Password"
-				class="border-2 border-black rounded-md"
+				class="border-2 border-black rounded-md px-2 py-1"
 				value=""
 			/>
 		</div>
 	</div>
 
-	<div class="w-full mx-auto flex justify-end">
-		<button
-			type="submit"
-			class="bg-green-400 px-4 py-2 border-2 shadow-lg border-green-900 rounded-md max-w-xs"
-		>
-			Login
-		</button>
-	</div>
+	<button
+		type="submit"
+		class="bg-green-400 px-4 py-2 border-2 shadow-lg border-green-900 rounded-md max-w-fit self-end"
+	>
+		Login
+	</button>
 </form>
