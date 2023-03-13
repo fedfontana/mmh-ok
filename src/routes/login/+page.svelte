@@ -43,7 +43,7 @@
 				name="username"
 				type="text"
 				placeholder="Username"
-				class="border-2 border-black rounded-md px-2 py-1"
+				class="border-2 border-black rounded-md px-3 py-2 shadow-lg"
 				value=""
 				required
 			/>
@@ -57,7 +57,7 @@
 				name="password"
 				type="password"
 				placeholder="Password"
-				class="border-2 border-black rounded-md px-2 py-1"
+				class="border-2 border-black rounded-md px-3 py-2 shadow-lg"
 				value=""
 			/>
 		</div>
@@ -65,7 +65,7 @@
 
 	<button
 		type="submit"
-		class="bg-green-400 px-4 py-2 border-2 shadow-lg border-green-900 rounded-md max-w-fit self-end"
+		class="bg-green-500 px-4 py-2 border-2 shadow-lg border-green-900 rounded-md max-w-fit self-end"
 	>
 		Login
 	</button>
