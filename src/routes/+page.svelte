@@ -16,15 +16,14 @@
 		on:submit|preventDefault={(e) => {
 			//@ts-ignore-next-line
 			const formData = Object.fromEntries(new FormData(e.target));
-			console.log(formData.date);
 			goto(`/stats/${formData.date}`);
 		}}
 	>
 		<label for="date" class="text-xl"> See stats for: </label>
-		<input type="date" name="date" class="border-2 border-black px-3 py-2 rounded-md shadow-lg" />
+		<input type="date" name="date" class="border-2 border-black dark:bg-neutral-900 px-3 py-2 rounded-md shadow-lg" />
 		<button
 			type="submit"
-			class="px-4 py-2 border-2 border-green-900 bg-green-500 rounded-md shadow-lg hover:scale-95 transition-all"
+			class="px-4 py-2 border-2 border-green-900 dark:border-green-500 bg-green-500 dark:bg-green-900 rounded-md shadow-lg hover:scale-95 transition-all"
 		>
 			Search
 		</button>

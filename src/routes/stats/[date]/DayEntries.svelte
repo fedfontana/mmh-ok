@@ -7,7 +7,7 @@
 	}[];
 </script>
 
-<div class="flex flex-col shadow-xl border-2 border-neutral-500 rounded-lg w-fit px-6 py-3">
+<div class="flex flex-col shadow-xl border-2 border-black dark:bg-neutral-900 rounded-lg w-fit px-6 py-3">
 	<h3 class="text-2xl font-semibold italic">"{word}"</h3>
 	<p class="text-lg">
 		Updates that day: {entries.length}

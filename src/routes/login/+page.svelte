@@ -38,26 +38,24 @@
 
 	<div class="flex flex-col gap-4 items-center justify-center">
 		<div class="flex flex-col gap-[0.1rem] w-full">
-			<label class="text-sm text-neutral-700 text-opacity-90" for="username"> Username </label>
+			<label class="text-sm text-neutral-700 dark:text-neutral-200 text-opacity-90" for="username"> Username </label>
 			<input
 				name="username"
 				type="text"
 				placeholder="Username"
-				class="border-2 border-black rounded-md px-3 py-2 shadow-lg"
+				class="border-2 border-black dark:bg-neutral-900 rounded-md px-3 py-2 shadow-lg"
 				value=""
 				required
 			/>
 		</div>
 
 		<div class="flex flex-col gap-[0.1rem] w-full">
-			<label class="text-sm text-neutral-700 text-opacity-9" for="password">
-				Password
-			</label>
+			<label class="text-sm text-neutral-700 dark:text-neutral-200 text-opacity-9" for="password"> Password </label>
 			<input
 				name="password"
 				type="password"
 				placeholder="Password"
-				class="border-2 border-black rounded-md px-3 py-2 shadow-lg"
+				class="border-2 border-black dark:bg-neutral-900 rounded-md px-3 py-2 shadow-lg"
 				value=""
 			/>
 		</div>
@@ -65,7 +63,7 @@
 
 	<button
 		type="submit"
-		class="bg-green-500 px-4 py-2 border-2 shadow-lg border-green-900 rounded-md max-w-fit self-end"
+		class="bg-green-500 dark:bg-green-900 px-4 py-2 border-2 shadow-lg border-green-900 dark:border-green-500 rounded-md max-w-fit self-end"
 	>
 		Login
 	</button>

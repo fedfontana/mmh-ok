@@ -1,10 +1,11 @@
 <script lang="ts">
 	import '../app.css';
-	import { isLoggedIn } from '../stores';
+	import { isLoggedIn, theme } from '../stores';
 	import type { LayoutServerData } from './$types';
 	import Navbar from './Navbar.svelte';
 
 	export let data: LayoutServerData;
+
 	$: {
 		if (data) {
 			$isLoggedIn = data.isLoggedIn;
@@ -12,7 +13,7 @@
 	}
 </script>
 
-<div>
+<div class="dark:bg-neutral-800 dark:text-neutral-100 min-h-screen dark:[color-scheme:dark]">
 	<Navbar />
 	<slot />
 </div>

@@ -30,14 +30,14 @@
 						saveCounter(counter - 1);
 					}
 				}}
-				class="bg-red-500 py-10 px-8 rounded-md shadow-lg border-2 border-red-900 hover:scale-95 transition-all disabled:opacity-40 disabled:transition-none disabled:hover:scale-100"
+				class="bg-red-500 dark:bg-red-900 py-10 px-8 rounded-md shadow-lg border-2 border-red-900 dark:border-red-500 hover:scale-95 transition-all disabled:opacity-40 disabled:transition-none disabled:hover:scale-100"
 				disabled={counter < 1}
 			>
 				-
 			</button>
 		{/if}
 		<span
-			class="px-14 py-10 font-mono text-6xl bg-neutral-200 shadow-xl rounded-xl border-2 border-black"
+			class="px-14 py-10 font-mono text-6xl bg-neutral-200 dark:bg-neutral-900 shadow-xl rounded-xl border-2 border-black"
 		>
 			{counter}
 		</span>
@@ -46,7 +46,7 @@
 				on:click={() => {
 					saveCounter(counter + 1);
 				}}
-				class="bg-green-500 py-10 px-8 rounded-md shadow-lg border-2 border-green-900 hover:scale-95 transition-all"
+				class="bg-green-500 dark:bg-green-900 py-10 px-8 rounded-md shadow-lg border-2 border-green-900 dark:border-green-500 hover:scale-95 transition-all"
 			>
 				+
 			</button>
