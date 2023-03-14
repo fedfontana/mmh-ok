@@ -36,12 +36,6 @@ export const load: PageServerLoad = async () => {
             }
         });
 
-        console.log({
-            mmh,
-            ok,
-            mmh_ok,
-        });
-
         return {
             mmh: mmh?.count ?? 0,
             ok: ok?.count ?? 0,
