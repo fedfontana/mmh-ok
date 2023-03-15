@@ -13,7 +13,7 @@
 	</div>
 
 	<form
-		class="mx-auto flex flex-col items-center gap-2 mt-24"
+		class="mx-auto flex flex-col items-center gap-2 mt-12 md:mt-24"
 		on:submit|preventDefault={(e) => {
 			//@ts-ignore-next-line
 			const formData = Object.fromEntries(new FormData(e.target));
