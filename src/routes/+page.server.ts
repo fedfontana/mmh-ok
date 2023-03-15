@@ -1,46 +1,26 @@
 import { error } from "@sveltejs/kit";
+import { WORDS } from "../constants";
 import { prisma } from "../db";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {
     try {
-        const mmh = await prisma.entry.findFirst({
-            where: {
-                word: {
-                    equals: "mmh"
+        const results = await Promise.all(WORDS.map(async word => {
+            const count = await prisma.entry.findFirst({
+                where: {
+                    word: {
+                        equals: word
+                    }
+                },
+                orderBy: {
+                    dateTime: "desc",
                 }
-            },
-            orderBy: {
-                dateTime: "desc",
-            }
-        });
-        const ok = await prisma.entry.findFirst({
-            where: {
-                word: {
-                    equals: "ok"
-                }
-            },
-            orderBy: {
-                dateTime: "desc",
-            }
-        });
+            });
 
-        const mmh_ok = await prisma.entry.findFirst({
-            where: {
-                word: {
-                    equals: "mmh-ok"
-                }
-            },
-            orderBy: {
-                dateTime: "desc",
-            }
-        });
+            return [word, count?.count ?? 0]
+        }));
 
-        return {
-            mmh: mmh?.count ?? 0,
-            ok: ok?.count ?? 0,
-            "mmh-ok": mmh_ok?.count ?? 0,
-        }
+        return Object.fromEntries(results);
     } catch (e) {
         console.error("Error fetching data: ", e);
         throw error(500, "Could not fetch data");

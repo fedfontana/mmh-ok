@@ -1,16 +1,22 @@
 <script lang="ts">
 	import { isLoggedIn } from '../stores';
 
-	export let endpoint: string;
 	export let word: string;
 	export let initialCount: number;
 
 	let counter = initialCount;
 
 	async function saveCounter(c: number) {
-		const res = await fetch(`${endpoint}/${c}`, { method: 'POST' });
+		const res = await fetch("/api/word", { 
+			method: 'POST', 
+			body: JSON.stringify({
+				word,
+				count: c,
+			}),
+		});
+
 		if (!res.ok) {
-			console.error(res.body);
+			console.error(res.body?.toString());
 		} else {
 			counter = c;
 		}

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '../app.css';
-	import { isLoggedIn, theme } from '../stores';
+	import { isLoggedIn } from '../stores';
 	import type { LayoutServerData } from './$types';
 	import Navbar from './Navbar.svelte';
 
