@@ -1,10 +1,12 @@
 <script>
+	import { browser } from '$app/environment';
 	import { TITLE } from '$src/constants';
 	import { isLoggedIn, theme } from '$src/stores';
 
 	function switchTheme() {
 		$theme = $theme === 'dark' ? 'light' : 'dark';
-		if (document) {
+
+		if (browser && document) {
 			const html = document.querySelector('html');
 			if (html) {
 				if ($theme === 'dark' && !html.classList.contains('dark')) {
