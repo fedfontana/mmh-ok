@@ -9,8 +9,12 @@
 	export let data: PageData;
 
 	const then = new Date($page.params.date!);
-	const deltaDays = (then.getTime() - Date.now()) / (1000 * 60 * 60 * 24);
-	const formatter = new Intl.RelativeTimeFormat();
+	const deltaDays = Math.ceil((then.getTime() - Date.now()) / (1000 * 60 * 60 * 24));
+	const formatter = new Intl.RelativeTimeFormat('en', {
+		localeMatcher: 'best fit',
+		numeric: 'auto',
+		style: 'long'
+	});
 	const relativeDate = formatter.format(Math.round(deltaDays), 'days');
 </script>
 
@@ -24,6 +28,6 @@
 		<TimeSeriesPlot data={data.day_entries} />
 	{:else}
 		<h3 class="font-semibold text-3xl mt-12">No entries for {relativeDate}</h3>
-		<StatsForm />
 	{/if}
+	<StatsForm />
 </div>

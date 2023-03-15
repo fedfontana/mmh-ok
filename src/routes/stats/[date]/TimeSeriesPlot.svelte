@@ -30,7 +30,10 @@
 			plotDiv,
 			plotData,
 			{
-				title: 'Bullshit over time'
+				title: 'Bullshit over time',
+				yaxis: {
+					dtick: 1,
+				}
 			},
 			{
 				displayModeBar: false,
