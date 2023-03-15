@@ -35,6 +35,7 @@
 	"type": "module",
 	"dependencies": {
 		"@prisma/client": "^4.11.0",
-		"jsonwebtoken": "^9.0.0"
+		"jsonwebtoken": "^9.0.0",
+		"plotly.js-dist": "^2.19.1"
 	}
 }
