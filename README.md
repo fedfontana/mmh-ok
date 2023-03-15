@@ -12,3 +12,5 @@ make push
 make generate
 npm run dev
 ```
+
+The contents of the website can be changed by editing `src/constants.ts`
