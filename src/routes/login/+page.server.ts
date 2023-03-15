@@ -2,7 +2,7 @@ import { error, redirect, type Actions, type ServerLoad } from "@sveltejs/kit";
 import jwt from 'jsonwebtoken';
 import { env } from "$env/dynamic/private";
 import { checkIsLoggedIn } from "../../utils";
-import { DEFAULT_JWT_DURATION } from "../../stores";
+import { JWT_DURATION } from "../../constants";
 
 export const load: ServerLoad = async ({ cookies }) => {
 	if (checkIsLoggedIn(cookies)) {
@@ -23,13 +23,13 @@ export const actions: Actions = {
 			const token = jwt.sign(
 				{ data: { authenticated: true } },
 				env.JWT_SECRET,
-				{ expiresIn: DEFAULT_JWT_DURATION }
+				{ expiresIn: JWT_DURATION }
 			);
 
 			if (env.NODE_ENV === "production") {
 				cookies.set('mmh_ok_auth_token', token, {
 					secure: true,
-					maxAge: parseInt(DEFAULT_JWT_DURATION),
+					maxAge: parseInt(JWT_DURATION),
 					sameSite: 'strict',
 					path: '/',
 					// httpOnly: true,
@@ -37,7 +37,7 @@ export const actions: Actions = {
 			} else {
 				cookies.set('mmh_ok_auth_token', token, {
 					secure: true,
-					maxAge: parseInt(DEFAULT_JWT_DURATION),
+					maxAge: parseInt(JWT_DURATION),
 					path: '/',
 					// httpOnly: true,
 				})
