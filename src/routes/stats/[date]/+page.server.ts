@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import { WORDS } from "../../../../../../../../Users/fonta/repo/mmh-ok/src/constants";
+import { WORDS } from "../../../constants";
 import { prisma } from "../../../db";
 import type { PageServerLoad } from "./$types";
 
