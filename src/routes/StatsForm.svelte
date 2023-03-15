@@ -1,6 +1,18 @@
-<script>
-	import { goto } from "$app/navigation";
+<script lang="ts">
+	import { goto } from '$app/navigation';
+
+	function dateToInputString(date: Date): string {
+		let month = '' + (date.getMonth() + 1); 
+		let day = '' + date.getDate(); 
+		const year = date.getFullYear();
+
+		if (month.length < 2) month = '0' + month;
+		if (day.length < 2) day = '0' + day;
+
+		return [year, month, day].join('-');
+	}
 </script>
+
 <form
 	class="mx-auto flex flex-col items-center gap-2 mt-12 md:mt-24"
 	on:submit|preventDefault={(e) => {
@@ -14,6 +26,7 @@
 		type="date"
 		name="date"
 		class="border-2 border-black dark:bg-neutral-900 px-3 py-2 rounded-md shadow-lg"
+		value={dateToInputString(new Date())}
 	/>
 	<button
 		type="submit"
