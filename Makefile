@@ -4,16 +4,19 @@ PSQL_USER=philip_rich
 PSQL_PASSWORD=philip_rich
 PSQL_CONTAINER_NAME=mmh_ok
 
-.PHONY: up restore dump logs rm stop populate push studio
+.PHONY: up start stop rm push generate studio
 up:
 	mkdir -p ./psql_data
 	docker run --name $(PSQL_CONTAINER_NAME) \
-		--mount type=bind,source=$(CURDIR)/psql_data,target=/var/lib/postgresql/data \
+		--mount type=bind,source="$(CURDIR)/psql_data",target=/var/lib/postgresql/data \
 		-e POSTGRES_DB=$(PSQL_DATABASE) \
 		-e POSTGRES_USER=$(PSQL_USER) \
 		-e POSTGRES_PASSWORD=$(PSQL_PASSWORD) \
 		-p 5432:5432 \
 		-d postgres:15-alpine
+
+start: up
+	docker start $(PSQL_CONTAINER_NAME)
 
 stop:
 	docker stop $(PSQL_CONTAINER_NAME)
@@ -24,6 +27,9 @@ rm: stop
 
 push:
 	npx prisma db push
+
+generate:
+	npx prisma generate
 
 studio:
 	npx prisma studio
