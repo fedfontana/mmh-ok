@@ -1,6 +1,5 @@
 <script>
-	import { goto } from '$app/navigation';
-	import { WORDS } from '../constants';
+	import { WORDS } from '$src/constants';
 	import StatsForm from './StatsForm.svelte';
 	import WordCounter from './WordCounter.svelte';
 	export let data;

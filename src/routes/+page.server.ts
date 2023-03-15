@@ -1,6 +1,6 @@
 import { error } from "@sveltejs/kit";
-import { WORDS } from "../constants";
-import { prisma } from "../db";
+import { WORDS } from "$src/constants";
+import { prisma } from "$src/db";
 import type { PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {

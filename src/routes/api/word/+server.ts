@@ -1,6 +1,6 @@
 import { error, type RequestHandler } from "@sveltejs/kit";
-import { checkIsLoggedIn } from "../../../utils";
-import { prisma } from "../../../db";
+import { checkIsLoggedIn } from "$src/utils";
+import { prisma } from "$src/db";
 
 export const POST: RequestHandler = async ({ cookies, request }) => {
     if (!checkIsLoggedIn(cookies)) {

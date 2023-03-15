@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { WORDS } from '../../../constants';
-	import StatsForm from '../../StatsForm.svelte';
+	import { WORDS } from '$src/constants';
+	import StatsForm from '$src/routes/StatsForm.svelte';
 	import type { PageData } from './$types';
 	import DayEntries from './DayEntries.svelte';
 	import TimeSeriesPlot from './TimeSeriesPlot.svelte';

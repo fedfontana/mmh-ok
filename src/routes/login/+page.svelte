@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { enhance, type SubmitFunction } from '$app/forms';
-	import { isLoggedIn } from '../../stores';
+	import { isLoggedIn } from '$src/stores';
 	import { goto } from '$app/navigation';
 
 	let error: string | undefined = undefined;

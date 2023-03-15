@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { isLoggedIn } from '../stores';
+	import { isLoggedIn } from '$src/stores';
 
 	export let word: string;
 	export let initialCount: number;

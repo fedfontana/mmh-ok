@@ -1,6 +1,6 @@
 <script>
-	import { TITLE } from '../constants';
-	import { isLoggedIn, theme } from '../stores';
+	import { TITLE } from '$src/constants';
+	import { isLoggedIn, theme } from '$src/stores';
 
 	function switchTheme() {
 		$theme = $theme === 'dark' ? 'light' : 'dark';
