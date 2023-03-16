@@ -1,5 +1,5 @@
 import { error } from "@sveltejs/kit";
-import { WORDS } from "$src/constants";
+import { WORDS } from "$src/config";
 import { prisma } from "$src/db";
 import type { PageServerLoad } from "./$types";
 

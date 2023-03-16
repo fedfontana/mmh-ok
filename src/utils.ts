@@ -1,7 +1,7 @@
 import { env } from '$env/dynamic/private';
 import type { Cookies } from '@sveltejs/kit';
 import jwt from 'jsonwebtoken';
-import { JWT_DURATION } from './constants';
+import { JWT_DURATION } from './config';
 
 export function checkIsLoggedIn(cookies: Cookies) {
     const token = cookies.get('mmh_ok_auth_token');

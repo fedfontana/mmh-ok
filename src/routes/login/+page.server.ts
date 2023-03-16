@@ -2,7 +2,7 @@ import { error, redirect, type Actions, type ServerLoad } from "@sveltejs/kit";
 import jwt from 'jsonwebtoken';
 import { env } from "$env/dynamic/private";
 import { checkIsLoggedIn } from "$src/utils";
-import { JWT_DURATION } from "$src/constants";
+import { JWT_DURATION } from "$src/config";
 
 export const load: ServerLoad = async ({ cookies }) => {
 	if (checkIsLoggedIn(cookies)) {
