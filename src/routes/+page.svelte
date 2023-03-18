@@ -1,16 +1,18 @@
-<script>
-	import { WORDS } from '$src/constants';
-	import StatsForm from './StatsForm.svelte';
-	import WordCounter from './WordCounter.svelte';
-	export let data;
+<script lang="ts">
+	import { CONFIG } from '$src/config';
+	import Navbar from './Navbar.svelte';
 </script>
 
-<div class="flex flex-col gap-12 w-full mt-12">
-	<div class="flex flex-row md:gap-10 gap-12 mx-auto justify-center max-w-[80%] flex-wrap">
-		{#each WORDS as word}
-			<WordCounter {word} initialCount={data[word]} />
+<Navbar />
+<div class="flex flex-col gap-6 min-w-fit md:w-1/12 mt-8 ml-12 md:mt-24 md:ml-36">
+	<h2 class="text-4xl font-bold">Courses</h2>
+	<ul class="flex flex-col gap-3">
+		{#each Object.entries(CONFIG) as [courseName, courseConfig]}
+			<li class="list-disc list-inside">
+				<a class="text-blue-500 hover:underline text-xl" href={courseName}>
+					{courseName} - {courseConfig.title}
+				</a>
+			</li>
 		{/each}
-	</div>
-
-	<StatsForm />
+	</ul>
 </div>

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { WORDS } from '$src/constants';
-	import StatsForm from '$src/routes/StatsForm.svelte';
+	import { CONFIG } from '$src/config';
+	import StatsForm from '$src/routes/[course]/StatsForm.svelte';
 	import type { PageData } from './$types';
 	import DayEntries from './DayEntries.svelte';
 	import TimeSeriesPlot from './TimeSeriesPlot.svelte';
@@ -21,8 +21,8 @@
 <div class="flex flex-col items-center gap-12 mt-12">
 	{#if Object.values(data.day_entries).filter((value) => value.length > 0).length > 0}
 		<div class="flex flex-row flex-wrap justify-center mx-12 gap-4 md:mx-auto w-fit">
-			{#each WORDS as word}
-				<DayEntries {word} entries={data.day_entries[word]} />
+			{#each Object.entries(data.day_entries) as [word, entries]}
+				<DayEntries {word} {entries} />
 			{/each}
 		</div>
 		<TimeSeriesPlot data={data.day_entries} />

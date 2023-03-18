@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
 
 	function dateToInputString(date: Date): string {
 		let month = '' + (date.getMonth() + 1); 
@@ -18,7 +19,7 @@
 	on:submit|preventDefault={(e) => {
 		//@ts-ignore-next-line
 		const formData = Object.fromEntries(new FormData(e.target));
-		goto(`/stats/${formData.date}`);
+		goto(`/${$page.params.course?.toUpperCase()}/stats/${formData.date}`);
 	}}
 >
 	<label for="date" class="text-xl"> See stats for: </label>

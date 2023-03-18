@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { isLoggedIn } from '$src/stores';
 
 	export let word: string;
@@ -7,11 +8,12 @@
 	let counter = initialCount;
 
 	async function saveCounter(c: number) {
-		const res = await fetch("/api/word", { 
+		const res = await fetch(`/api/word`, { 
 			method: 'POST', 
 			body: JSON.stringify({
 				word,
 				count: c,
+				course: $page.params.course?.toUpperCase(),
 			}),
 		});
 
