@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import Navbar from './Navbar.svelte';
 </script>
 
+<Navbar />
 <div class="flex mx-auto w-fit items-center mt-12 md:mt-24 flex-col gap-12 md:gap-24 justify-center">
     <div class="flex flex-col mx-auto w-fit items-center gap-4">
         <h3 class="text-4xl font-bold">{$page.status}</h3>

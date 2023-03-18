@@ -1,6 +1,7 @@
 export const JWT_DURATION = `${14 * 24 * 60 * 60 * 1000}`;
 
 
+// Course names must be uppercase only
 export type Config = {
     readonly [course: string]: {
         title: string,
@@ -8,13 +9,15 @@ export type Config = {
     }
 }
 
+export const TITLE = "mk";
+
 export const CONFIG: Config = {
-    "FSTT": {
+    FSTT: {
         title: "mmh...ok?",
         words: ["mmh", "ok", "mmh ok"],
     },
-    "ITMP": {
+    ITPM: {
         title: "THE counter",
-        words: []
+        words: ["money", "use the brain", "mmh"]
     }
 } as const;

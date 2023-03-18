@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { browser } from '$app/environment';
 	import '$src/app.css';
-	import { TITLE } from '$src/constants';
-	import { isLoggedIn, theme } from '$src/stores';
+	import { browser } from '$app/environment';
 	import type { LayoutServerData } from './$types';
-	import Navbar from './Navbar.svelte';
+
+	import { CONFIG, TITLE } from '$src/config';
+	import { isLoggedIn, theme } from '$src/stores';
 
 	export let data: LayoutServerData;
 
@@ -34,7 +34,6 @@
 	</title>
 </svelte:head>
 
-<div class="dark:bg-neutral-800 dark:text-neutral-100 min-h-screen dark:[color-scheme:dark]">
-	<Navbar />
+<div class="dark:bg-neutral-800 dark:text-neutral-100 min-h-screen dark:[color-scheme:dark] overflow-visible">
 	<slot />
 </div>

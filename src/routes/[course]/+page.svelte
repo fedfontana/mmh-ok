@@ -1,14 +1,15 @@
 <script lang="ts">
-	import { WORDS } from '$src/config';
+	import type { PageData, PageServerData } from './$types';
 	import StatsForm from './StatsForm.svelte';
 	import WordCounter from './WordCounter.svelte';
-	export let data;
+
+	export let data: PageServerData;
 </script>
 
 <div class="flex flex-col gap-12 w-full mt-12">
 	<div class="flex flex-row md:gap-10 gap-12 mx-auto justify-center max-w-[80%] flex-wrap">
-		{#each WORDS as word}
-			<WordCounter {word} initialCount={data[word]} />
+		{#each Object.entries(data.wordCounts) as [word, count]}
+			<WordCounter {word} initialCount={count} />
 		{/each}
 	</div>
 
