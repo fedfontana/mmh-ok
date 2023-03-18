@@ -2,6 +2,7 @@
 	import { enhance, type SubmitFunction } from '$app/forms';
 	import { isLoggedIn } from '$src/stores';
 	import { goto } from '$app/navigation';
+	import Navbar from '../Navbar.svelte';
 
 	let error: string | undefined = undefined;
 
@@ -23,6 +24,7 @@
 	};
 </script>
 
+<Navbar />
 <form
 	method="POST"
 	use:enhance={handleLoginSubmit}
