@@ -34,6 +34,6 @@ export const load: PageServerLoad = async ({ params }) => {
         };
     } catch (e) {
         console.error("Error fetching data: ", e);
-        throw error(500, `Could not fetch data. Debugging of the casaling di voghera: ${e}`);
+        throw error(500, "Could not fetch data.");
     }
 }
