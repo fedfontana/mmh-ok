@@ -18,7 +18,7 @@ export const CONFIG: Config = {
     },
     ITPM: {
         title: "THE counter",
-        words: ["vabho", "ehh", "ehh vabho", "france", "greece", "california", "money", "use your brain", "bah!", "no no no"],
+        words: ["vabho", "ehh", "ehh vabho", "france", "greece", "california", "money", "use your brain", "bah!", "no no no", "italian"],
     },
     IOT: {
         title: "HAHAH!",
