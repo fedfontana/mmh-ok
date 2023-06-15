@@ -25,7 +25,7 @@ export const CONFIG: Config = {
         words: ["hahah!"],
     },
     BILLY: {
-        title: "BILLY",
+        title: "chi ha ragione?",
         words: ["fede", "marti"]
     },
     CASI: {
