@@ -27,5 +27,28 @@ export const CONFIG: Config = {
     BILLY: {
         title: "BILLY",
         words: ["fede", "marti"]
+    },
+    CASI: {
+        title: "Casi risolti",
+        words: [
+            "ali",
+            "pede",
+            "ferra",
+            "rebecca",
+            "mraco",
+            "scarro",
+            "marti",
+            "fede",
+            "lax",
+            "simo",
+            "milo",
+            "jojo",
+            "samu",
+            "chiara",
+            "bobby",
+            "mirco",
+            "F",
+            "lollo spritzy",
+        ]
     }
 } as const;
