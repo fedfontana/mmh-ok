@@ -24,4 +24,8 @@ export const CONFIG: Config = {
         title: "HAHAH!",
         words: ["hahah!"],
     },
+    BILLY: {
+        title: "BILLY",
+        words: ["fede", "marti"]
+    }
 } as const;
